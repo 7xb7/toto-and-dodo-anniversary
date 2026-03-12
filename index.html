@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Standard metadata -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Force light palette for this project -->
+  <meta name="color-scheme" content="light" />
+  <!-- Main page title -->
+  <title>TOTO &amp; DODO Anniversary</title>
+  <!-- First-page styles and animation system -->
+  <link rel="stylesheet" href="style.css?v=20260301-3" />
+</head>
+<body class="not-loaded custom-cursor">
+  <!-- Main countdown block at the top -->
+  <!-- This includes title, date, timer value, open button, and toast -->
+  <div id="anniversary-countdown-panel">
+    <div class="anniversary-countdown-title">TOTO &amp; DODO Anniversary</div>
+    <div class="anniversary-countdown-subtitle">April 22</div>
+    <div id="anniversary-countdown-value" aria-hidden="true"></div>
+    <a href="#" id="anniversary-open-story-link" class="anniversary-open-story-link" role="button" aria-disabled="true">Click When The Timer Is Up</a>
+    <div id="anniversary-not-yet-toast" class="anniversary-not-yet-toast" role="status" aria-live="polite">Not Yet Sweetheart</div>
+  </div>
+  <!-- Background scene layers -->
+  <!-- Night/glow canvas -->
+  <div class="night"></div>
+  <!-- Falling pixel leaves overlay -->
+  <div class="falling-pixel-leaves" aria-hidden="true" style="opacity: 0; visibility: hidden;">
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+    <span class="falling-pixel-leaf"></span>
+  </div>
+  <div class="flowers">
+    <!-- Bouquet root with flowers, leaves, and grass -->
+    <!-- Left flower group -->
+    <div class="flower flower--1">
+      <div class="flower__leafs flower__leafs--1">
+        <div class="flower__leaf flower__leaf--1"></div>
+        <div class="flower__leaf flower__leaf--2"></div>
+        <div class="flower__leaf flower__leaf--3"></div>
+        <div class="flower__leaf flower__leaf--4"></div>
+        <div class="flower__white-circle"></div>
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+        <div class="flower-unit-badge flower-unit-badge--days">
+          <div id="anniversary-days-value" class="flower-unit-value">--</div>
+          <div class="flower-unit-label">Days</div>
+        </div>
+
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+        <div class="flower__line__leaf flower__line__leaf--5"></div>
+        <div class="flower__line__leaf flower__line__leaf--6"></div>
+      </div>
+    </div>
+
+    <!-- Center flower group -->
+    <div class="flower flower--2">
+      <div class="flower__leafs flower__leafs--2">
+        <div class="flower__leaf flower__leaf--1"></div>
+        <div class="flower__leaf flower__leaf--2"></div>
+        <div class="flower__leaf flower__leaf--3"></div>
+        <div class="flower__leaf flower__leaf--4"></div>
+        <div class="flower__white-circle"></div>
+
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+        <div class="flower-unit-badge flower-unit-badge--hours">
+          <div id="anniversary-hours-value" class="flower-unit-value">--</div>
+          <div class="flower-unit-label">Hours</div>
+        </div>
+
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
+    </div>
+
+    <!-- Extra flower group (seconds) -->
+    <div class="flower flower--4">
+      <div class="flower__leafs flower__leafs--2">
+        <div class="flower__leaf flower__leaf--1"></div>
+        <div class="flower__leaf flower__leaf--2"></div>
+        <div class="flower__leaf flower__leaf--3"></div>
+        <div class="flower__leaf flower__leaf--4"></div>
+        <div class="flower__white-circle"></div>
+
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+        <div class="flower-unit-badge flower-unit-badge--seconds">
+          <div id="anniversary-seconds-value" class="flower-unit-value">--</div>
+          <div class="flower-unit-label">Seconds</div>
+        </div>
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
+    </div>
+
+    <!-- Right flower group -->
+    <div class="flower flower--3">
+      <div class="flower__leafs flower__leafs--3">
+        <div class="flower__leaf flower__leaf--1"></div>
+        <div class="flower__leaf flower__leaf--2"></div>
+        <div class="flower__leaf flower__leaf--3"></div>
+        <div class="flower__leaf flower__leaf--4"></div>
+        <div class="flower__white-circle"></div>
+
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+        <div class="flower-unit-badge flower-unit-badge--minutes">
+          <div id="anniversary-minutes-value" class="flower-unit-value">--</div>
+          <div class="flower-unit-label">Minutes</div>
+        </div>
+
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
+    </div>
+
+    <!-- Long decorative leaf -->
+    <div class="grow-ans" style="--d:0.6s">
+      <div class="flower__leaf-long">
+        <div class="flower__leaf-long__top"></div>
+        <div class="flower__leaf-long__bottom"></div>
+      </div>
+    </div>
+
+    <!-- Front grass groups -->
+    <!-- Grass group 1 -->
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--1">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <!-- Grass group 2 -->
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--2">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+    <!-- Grass group 3 -->
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--3">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <!-- Right-side accent leaves -->
+    <div class="grow-ans" style="--d:1.2s">
+      <div class="flower__leaf-right flower__leaf-right--1">
+        <div class="leaf"></div>
+      </div>
+    </div>
+
+    <div class="grow-ans" style="--d:1.4s">
+      <div class="flower__leaf-right flower__leaf-right--2">
+        <div class="leaf"></div>
+      </div>
+    </div>
+
+    <!-- Front leaf fan -->
+    <div class="grow-ans" style="--d:0s">
+      <div class="flower__leaf-front">
+        <div class="flower__leaf-front__leaf-wrapper flower__leaf-front__leaf-wrapper--1">
+          <div class="flower__leaf-front__leaf"></div>
+        </div>
+        <div class="flower__leaf-front__leaf-wrapper flower__leaf-front__leaf-wrapper--2">
+          <div class="flower__leaf-front__leaf"></div>
+        </div>
+        <div class="flower__leaf-front__leaf-wrapper flower__leaf-front__leaf-wrapper--3">
+          <div class="flower__leaf-front__leaf"></div>
+        </div>
+        <div class="flower__leaf-front__leaf-wrapper flower__leaf-front__leaf-wrapper--4">
+          <div class="flower__leaf-front__leaf"></div>
+        </div>
+        <div class="flower__leaf-front__leaf-wrapper flower__leaf-front__leaf-wrapper--5">
+          <div class="flower__leaf-front__leaf"></div>
+        </div>
+        <div class="flower__leaf-front__leaf-wrapper flower__leaf-front__leaf-wrapper--6">
+          <div class="flower__leaf-front__leaf"></div>
+        </div>
+        <div class="flower__leaf-front__leaf-wrapper flower__leaf-front__leaf-wrapper--7">
+          <div class="flower__leaf-front__leaf"></div>
+        </div>
+        <div class="flower__leaf-front__leaf-wrapper flower__leaf-front__leaf-wrapper--8">
+          <div class="flower__leaf-front__leaf"></div>
+        </div>
+        <div class="flower__leaf-front__line"></div>
+      </div>
+    </div>
+
+    <!-- Extra front branch leaves -->
+    <div class="grow-ans" style="--d:1.6s">
+      <div class="flower__leaf-fr">
+        <div class="leaf"></div>
+        <div class="flower__leaf-fr__leaf flower__leaf-fr__leaf--1"></div>
+        <div class="flower__leaf-fr__leaf flower__leaf-fr__leaf--2"></div>
+        <div class="flower__leaf-fr__leaf flower__leaf-fr__leaf--3"></div>
+        <div class="flower__leaf-fr__leaf flower__leaf-fr__leaf--4"></div>
+        <div class="flower__leaf-fr__leaf flower__leaf-fr__leaf--5"></div>
+        <div class="flower__leaf-fr__leaf flower__leaf-fr__leaf--6"></div>
+        <div class="flower__leaf-fr__leaf flower__leaf-fr__leaf--7"></div>
+        <div class="flower__leaf-fr__leaf flower__leaf-fr__leaf--8"></div>
+      </div>
+    </div>
+
+    <!-- Back long-grass layers -->
+    <!-- Layer 0 -->
+    <div class="long-g long-g--0">
+      <div class="grow-ans" style="--d:1.5s">
+        <div class="leaf leaf--0"></div>
+      </div>
+      <div class="grow-ans" style="--d:1.1s">
+        <div class="leaf leaf--1"></div>
+      </div>
+      <div class="grow-ans" style="--d:1.7s">
+        <div class="leaf leaf--2"></div>
+      </div>
+      <div class="grow-ans" style="--d:1.8s">
+        <div class="leaf leaf--3"></div>
+      </div>
+    </div>
+
+    <!-- Layer 1 -->
+    <div class="long-g long-g--1">
+      <div class="grow-ans" style="--d:1.8s">
+        <div class="leaf leaf--0"></div>
+      </div>
+      <div class="grow-ans" style="--d:1.9s">
+        <div class="leaf leaf--1"></div>
+      </div>
+      <div class="grow-ans" style="--d:2s">
+        <div class="leaf leaf--2"></div>
+      </div>
+      <div class="grow-ans" style="--d:2.1s">
+        <div class="leaf leaf--3"></div>
+      </div>
+    </div>
+
+    <!-- Layer 2 -->
+    <div class="long-g long-g--2">
+      <div class="grow-ans" style="--d:2s">
+        <div class="leaf leaf--0"></div>
+      </div>
+      <div class="grow-ans" style="--d:2.1s">
+        <div class="leaf leaf--1"></div>
+      </div>
+      <div class="grow-ans" style="--d:2.2s">
+        <div class="leaf leaf--2"></div>
+      </div>
+      <div class="grow-ans" style="--d:2.3s">
+        <div class="leaf leaf--3"></div>
+      </div>
+    </div>
+
+    <!-- Layer 3 -->
+    <div class="long-g long-g--3">
+      <div class="grow-ans" style="--d:2s">
+        <div class="leaf leaf--0"></div>
+      </div>
+      <div class="grow-ans" style="--d:2.1s">
+        <div class="leaf leaf--1"></div>
+      </div>
+      <div class="grow-ans" style="--d:1.5s">
+        <div class="leaf leaf--2"></div>
+      </div>
+      <div class="grow-ans" style="--d:1.8s">
+        <div class="leaf leaf--3"></div>
+      </div>
+    </div>
+
+    <!-- Layer 4 -->
+    <div class="long-g long-g--4">
+      <div class="grow-ans" style="--d:2s">
+        <div class="leaf leaf--0"></div>
+      </div>
+      <div class="grow-ans" style="--d:2.1s">
+        <div class="leaf leaf--1"></div>
+      </div>
+      <div class="grow-ans" style="--d:1.5s">
+        <div class="leaf leaf--2"></div>
+      </div>
+      <div class="grow-ans" style="--d:1.8s">
+        <div class="leaf leaf--3"></div>
+      </div>
+    </div>
+
+    <!-- Layer 5 -->
+    <div class="long-g long-g--5">
+      <div class="grow-ans" style="--d:4s">
+        <div class="leaf leaf--0"></div>
+      </div>
+      <div class="grow-ans" style="--d:4.2s">
+        <div class="leaf leaf--1"></div>
+      </div>
+      <div class="grow-ans" style="--d:3s">
+        <div class="leaf leaf--2"></div>
+      </div>
+      <div class="grow-ans" style="--d:3.6s">
+        <div class="leaf leaf--3"></div>
+      </div>
+    </div>
+
+    <!-- Layer 6 -->
+    <div class="long-g long-g--6">
+      <div class="grow-ans" style="--d:4.2s">
+        <div class="leaf leaf--0"></div>
+      </div>
+      <div class="grow-ans" style="--d:4.4s">
+        <div class="leaf leaf--1"></div>
+      </div>
+      <div class="grow-ans" style="--d:4.6s">
+        <div class="leaf leaf--2"></div>
+      </div>
+      <div class="grow-ans" style="--d:4.8s">
+        <div class="leaf leaf--3"></div>
+      </div>
+    </div>
+
+    <!-- Layer 7 -->
+    <div class="long-g long-g--7">
+      <div class="grow-ans" style="--d:3s">
+        <div class="leaf leaf--0"></div>
+      </div>
+      <div class="grow-ans" style="--d:3.2s">
+        <div class="leaf leaf--1"></div>
+      </div>
+      <div class="grow-ans" style="--d:3.5s">
+        <div class="leaf leaf--2"></div>
+      </div>
+      <div class="grow-ans" style="--d:3.6s">
+        <div class="leaf leaf--3"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Shared hashtag shown on all pages -->
+  <div class="corner-hashtag">#TotoAndDodoTogetherForever</div>
+
+  <!-- Countdown + unlock behavior -->
+  <script src="script.js?v=20260301-3"></script>
+</body>
+</html>
